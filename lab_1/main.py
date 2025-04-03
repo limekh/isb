@@ -1,6 +1,6 @@
+from reedsave import *
 from task1.encrypt import *
 from task2.decrypt import *
-from reedsave import *
 
 
 def main():
