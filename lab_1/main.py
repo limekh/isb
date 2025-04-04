@@ -4,13 +4,13 @@ from task2.consts import *
 
 def main():
     # task1
-    save_text("task1/cipher_text.txt", encrypted)
+    save_text(encrypted_text, encrypted)
 
     # task 2
-    save_json('task2/freq.json', freq_analysis(encrypt_text))
-    save_json('task2/auto_key.json', create_key(encrypt_text, read_json('task2/frequencies.json')))
-    save_text('task2/decrypted_text.txt', decrypt_text)
-    save_text('task2/real_decrypt.txt', real_decrypt)
+    save_json(freq, freq_analysis(encrypt_text))
+    save_json(auto_key, create_key(encrypt_text, read_json(freq_ru)))
+    save_text(decrypted_text, decrypted)
+    save_text(real_decrypted_text, real_decrypt)
 
 
 if __name__ == "__main__":
