@@ -3,7 +3,7 @@ from reedsave import *
 
 
 ALPHABET = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'
-key = get_text('task1/key.txt')
-text = get_text('task1/text.txt')
-encrypted = keyword_cipher(text, key)
-encrypted_text = "task1/cipher_text.txt"
+KEY = get_text('task1/key.txt')
+TEXT = get_text('task1/text.txt')
+ENCRYPTED = keyword_cipher(text, key)
+ENCRYPTED_TEXT = "task1/cipher_text.txt"
