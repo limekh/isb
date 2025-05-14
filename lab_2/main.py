@@ -5,10 +5,10 @@ from tests import *
 
 def all_tests(seq: str, name: str, out: str):
     """
-
-    :param seq:
-    :param name:
-    :param out:
+    Run all tests for seq
+    :param seq: sequence for tests
+    :param name: name of prog lang
+    :param out: path to save
     :return:
     """
     result = {

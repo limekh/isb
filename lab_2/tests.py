@@ -5,8 +5,10 @@ from consts import PI_I
 
 def freq_bit_test(seq: str) -> float:
     """
-
-    :return:
+    Tests if the sequence is randomly generated
+    using frequency bit testing
+    :param seq: sequence for test
+    :return: p_value
     """
     s_n = (seq.count("1") - seq.count("0")) / sqrt(len(seq))
     p_value = erfc(abs(s_n) / sqrt(2))
@@ -15,9 +17,10 @@ def freq_bit_test(seq: str) -> float:
 
 def test_for_identical_bits(seq: str) -> float:
     """
-
-    :param seq:
-    :return:
+    The main task of the test is to set the frequency
+    of changing "1" to "0" and back
+    :param seq: sequence for test
+    :return: p_value
     """
     zeta = seq.count("1") / len(seq)
     if (abs(zeta) - 0.5) >= (2 / sqrt(len(seq))):
@@ -32,9 +35,12 @@ def test_for_identical_bits(seq: str) -> float:
 
 def longest_sequence_test(seq: str) -> float:
     """
-
-    :param seq:
-    :return:
+    Inside the block, the longest seq of units is
+    searched for and its evaluation is performed,
+    which is compared with a similar evaluation for
+    a reference random seq
+    :param seq: sequence for test
+    :return: p_value
     """
     if len(seq) < 128:
         raise ValueError("128 bits required")
