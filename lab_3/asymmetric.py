@@ -11,15 +11,15 @@ class Asymmetric:
         return private_key, private_key.public_key()
 
     @staticmethod
-    def encrypt(public_key, plaintext):
+    def encrypt_symmetric_key(public_key, symmetric_key):
         return public_key.encrypt(
-            plaintext,
+            symmetric_key,
             padding.OAEP(mgf=padding.MGF1(algorithm=hashes.SHA256()), algorithm=hashes.SHA256(), label=None)
         )
 
     @staticmethod
-    def decrypt(private_key, ciphertext):
+    def decrypt_symmetric_key(private_key, symmetric_key):
         return private_key.decrypt(
-            ciphertext,
+            symmetric_key,
             padding.OAEP(mgf=padding.MGF1(algorithm=hashes.SHA256()), algorithm=hashes.SHA256(), label=None)
         )

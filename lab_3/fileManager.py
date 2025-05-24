@@ -21,7 +21,7 @@ class FilesHandler:
     @staticmethod
     def write_bytes(save_path: str, data: bytes) -> None:
         try:
-            with open(save_path, mode='wb') as file:
+            with open(save_path, 'wb') as file:
                 file.write(data)
         except FileNotFoundError:
             print(f"The file was not found.")
