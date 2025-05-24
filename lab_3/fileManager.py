@@ -5,7 +5,7 @@ from cryptography.hazmat.primitives import serialization
 from cryptography.hazmat.primitives.serialization import load_pem_public_key, load_pem_private_key
 
 
-class FilesHandler:
+class FilesManager:
 
     @staticmethod
     def get_bytes(file_name: str) -> bytes:

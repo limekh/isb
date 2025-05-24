@@ -2,6 +2,8 @@ from cryptography.hazmat.primitives.asymmetric import rsa, padding
 from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.backends import default_backend
 
+from fileManager import FilesManager
+
 
 class Asymmetric:
 
@@ -23,3 +25,19 @@ class Asymmetric:
             symmetric_key,
             padding.OAEP(mgf=padding.MGF1(algorithm=hashes.SHA256()), algorithm=hashes.SHA256(), label=None)
         )
+
+    @staticmethod
+    def serialization_public_key(save_path, public_key):
+        FilesManager.write_public_key(save_path, public_key)
+
+    @staticmethod
+    def serialization_private_key(save_path, private_key):
+        FilesManager.write_private_key(save_path, private_key)
+
+    @staticmethod
+    def deserialization_public_key(file_name):
+        return FilesManager.read_public_key(file_name)
+
+    @staticmethod
+    def deserialization_private_key(file_name):
+        return FilesManager.read_private_key(file_name)
