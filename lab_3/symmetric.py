@@ -6,7 +6,7 @@ import os
 from fileManager import FilesManager
 
 
-class Asymmetric:
+class Symmetric:
 
     @staticmethod
     def generate_key(key_len):
