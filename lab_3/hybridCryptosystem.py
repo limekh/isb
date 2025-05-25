@@ -19,7 +19,8 @@ def keys_generator(sym_key_path, public_key_path, private_key_path):
         else:
             print("Key len must be 64, 18 or 192")
     sym_key = Symmetric.generate_key(key_len)
-    Symmetric.serialization_symmetric_key(sym_key_path, sym_key)
+    encr_sym_key = Asymmetric.encrypt_symmetric_key(public_key, sym_key)
+    Symmetric.serialization_symmetric_key(sym_key_path, encr_sym_key)
 
     print("The keys are generated and save successfully")
 

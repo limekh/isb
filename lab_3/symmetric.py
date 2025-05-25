@@ -28,11 +28,9 @@ class Symmetric:
         cipher = Cipher(
             algorithms.TripleDES(key),
             modes.CBC(iv),
-            backend=default_backend()
         )
         encryptor = cipher.encryptor()
         ciphertext = encryptor.update(padded_text) + encryptor.finalize()
-        ciphertext = iv + ciphertext
 
         FilesManager.write_bytes(path_to_save, ciphertext)
 

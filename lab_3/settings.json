@@ -4,5 +4,5 @@
     "decrypted_file":"decryptedText.txt",
     "symmetric_key":"symmetricKey.txt",
     "public_key":"publicKey.pem",
-    "secret_key":"secretKey.pem"
+    "private_key":"privateKey.pem"
 }
