@@ -1,7 +1,7 @@
 import argparse
 import json
 
-from hybridCryptosystem import *
+from hybridCryptosystem import HybridCryptoSystem
 
 
 def parse_args():
@@ -30,11 +30,14 @@ def main():
     private_key = settings["private_key"]
 
     if args.generation:
-        keys_generator(symmetric_key, public_key, private_key)
+        print("бля бля бля")
+        HybridCryptoSystem.keys_generator(symmetric_key, public_key, private_key)
     elif args.encryption:
-        encrypt(private_key, initial_file, encrypted_file, symmetric_key)
+        print("панашко")
+        HybridCryptoSystem.encrypt(private_key, initial_file, encrypted_file, symmetric_key)
     elif args.decryption:
-        decrypt(private_key, encrypted_file, symmetric_key, decrypted_file)
+        print("бээум")
+        HybridCryptoSystem.decrypt(private_key, encrypted_file, symmetric_key, decrypted_file)
 
 
 if __name__ == "__main__":

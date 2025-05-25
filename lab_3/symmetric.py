@@ -16,8 +16,8 @@ class Symmetric:
         return key
 
     @staticmethod
-    def encrypt_text(key, text_name, path_to_save):
-        plaintext = FilesManager.get_bytes(text_name)
+    def encrypt_text(key, path_to_text, path_to_save):
+        plaintext = FilesManager.get_bytes(path_to_text)
         iv = os.urandom(8)  # 3DES использует 8-байтовый IV
 
         # Применяем padding к данным
@@ -46,8 +46,8 @@ class Symmetric:
         unpadder = padding.PKCS7(algorithms.TripleDES.block_size).unpadder()
         depadder_dc_text = unpadder.update(decrypted_text) + unpadder.finalize()
 
-        FilesManager.write_txt(path_to_save, depadder_dc_text.decode('UTF-8'))
-        return depadder_dc_text.decode('UTF-8')
+        FilesManager.write_bytes(path_to_save, depadder_dc_text)
+        return depadder_dc_text
 
     @staticmethod
     def serialization_symmetric_key(path_to_save, key):

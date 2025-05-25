@@ -20,9 +20,11 @@ class Asymmetric:
         )
 
     @staticmethod
-    def decrypt_symmetric_key(private_key, symmetric_key):
+    def decrypt_symmetric_key(private_key_path, sym_key_path):
+        private_key = FilesManager.read_private_key(private_key_path)
+        encr_symmetric_key = FilesManager.get_bytes(sym_key_path)
         return private_key.decrypt(
-            symmetric_key,
+            encr_symmetric_key,
             padding.OAEP(mgf=padding.MGF1(algorithm=hashes.SHA256()), algorithm=hashes.SHA256(), label=None)
         )
 
