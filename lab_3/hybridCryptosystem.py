@@ -18,7 +18,7 @@ class HybridCryptoSystem:
             if key_len in [64, 128, 192]:
                 flag = False
             else:
-                print("Key len must be 64, 18 or 192")
+                print("Key len must be 64, 128 or 192")
         sym_key = Symmetric.generate_key(key_len)
         encr_sym_key = Asymmetric.encrypt_symmetric_key(public_key, sym_key)
         Symmetric.serialization_symmetric_key(sym_key_path, encr_sym_key)

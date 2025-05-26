@@ -30,13 +30,10 @@ def main():
     private_key = settings["private_key"]
 
     if args.generation:
-        print("бля бля бля")
         HybridCryptoSystem.keys_generator(symmetric_key, public_key, private_key)
     elif args.encryption:
-        print("панашко")
         HybridCryptoSystem.encrypt(private_key, initial_file, encrypted_file, symmetric_key)
     elif args.decryption:
-        print("бээум")
         HybridCryptoSystem.decrypt(private_key, encrypted_file, symmetric_key, decrypted_file)
 
 

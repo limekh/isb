@@ -41,7 +41,7 @@ class FilesManager:
     @staticmethod
     def write_txt(save_path: str, text: str) -> None:
         try:
-            with open(save_path, 'w') as file:
+            with open(save_path, 'w', encoding='utf-8') as file:
                 file.write(text)
         except FileNotFoundError:
             print(f"The file was not found.")

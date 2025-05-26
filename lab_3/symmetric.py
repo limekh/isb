@@ -30,7 +30,7 @@ class Symmetric:
             modes.CBC(iv),
         )
         encryptor = cipher.encryptor()
-        ciphertext = encryptor.update(padded_text) + encryptor.finalize()
+        ciphertext = iv + encryptor.update(padded_text) + encryptor.finalize()
 
         FilesManager.write_bytes(path_to_save, ciphertext)
 
@@ -38,6 +38,7 @@ class Symmetric:
     def decrypt_text(key, ciphertext_path, path_to_save):
         cipher_text = FilesManager.get_bytes(ciphertext_path)
         iv = cipher_text[:8]
+        cipher_text = cipher_text[8:]
 
         cipher = Cipher(algorithms.TripleDES(key), modes.CBC(iv))
         decryptor = cipher.decryptor()
@@ -46,8 +47,8 @@ class Symmetric:
         unpadder = padding.PKCS7(algorithms.TripleDES.block_size).unpadder()
         depadder_dc_text = unpadder.update(decrypted_text) + unpadder.finalize()
 
-        FilesManager.write_bytes(path_to_save, depadder_dc_text)
-        return depadder_dc_text
+        text = depadder_dc_text.decode('utf-8')
+        FilesManager.write_txt(path_to_save, text)
 
     @staticmethod
     def serialization_symmetric_key(path_to_save, key):
